@@ -1,12 +1,13 @@
 from sly import Lexer
 
+
 class mylexer(Lexer):
     tokens = {PROCEDURE, IS, VAR, BEGIN, PROGRAM, END, IF, THEN,
               ELSE, ENDIF, WHILE, DO, ENDWHILE, REPEAT, UNTIL,
               READ, WRITE,
               EQ, NEQ, GT, LS, GEQ, LEQ,
               NUMBER, IDENTIFIER, ASSIGN}
-    literals = {'+','-','*','/','%','(',')',',',';'}
+    literals = {'+', '-', '*', '/', '%', '(', ')', ',', ';'}
     ignore = ' \t'
     ignore_comment = r'\[([^]]|\n)*\]'
 
@@ -17,14 +18,14 @@ class mylexer(Lexer):
     PROGRAM = r'PROGRAM'
     END = r'END'
     IF = r'IF'
-    THEN= r'THEN'
+    THEN = r'THEN'
     ELSE = r'ELSE'
     ENDIF = r'ENDIF'
     WHILE = r'WHILE'
     DO = r'DO'
     ENDWHILE = r'ENDWHILE'
     REPEAT = r'REPEAT'
-    UNTIL= r'UNTIL'
+    UNTIL = r'UNTIL'
     READ = r'READ'
     WRITE = r'WRITE'
     EQ = r'='
@@ -32,7 +33,7 @@ class mylexer(Lexer):
     GT = r'>'
     LS = r'<'
     GEQ = r'>='
-    LEQ= r'<='
+    LEQ = r'<='
     NUMBER = r'\d+'
     IDENTIFIER = r'[_a-z]+'
     ASSIGN = r':='
@@ -44,5 +45,3 @@ class mylexer(Lexer):
     def error(self, t):
         print('Line %d: Bad character %r' % (self.lineno, t.value[0]))
         self.index += 1
-
-    
